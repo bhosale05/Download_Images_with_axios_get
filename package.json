@@ -1,0 +1,14 @@
+{
+  "name": "c",
+  "version": "1.0.0",
+  "description": "download img and save in folder",
+  "main": "index.js",
+  "scripts": {
+    "test": "nide index.js"
+  },
+  "author": "Archana Bhosale",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}
