@@ -4,7 +4,7 @@
   "description": "download img and save in folder",
   "main": "index.js",
   "scripts": {
-    "test": "nide index.js"
+    "test": "node index.js"
   },
   "author": "Archana Bhosale",
   "license": "ISC",

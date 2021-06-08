@@ -1,27 +1,25 @@
 'use strict'
 
-const fs = require('fs');
-const path = require('path');
-const axios = require('axios');
+const fs = require('fs')
+const path = require('path')
+const axios = require('axios')
 
 async function downloadImage(){
-    const url = 'https://www.pngfind.com/mpng/ihhxmR_club-penguin-flower-thepix-clip-art-clip-art/';
+    const url = 'https://unsplash.com/photos/UThz2YH-6gc';
 
-    const imagePath = path.resolve(__dirname, 'images', 'flower.png');
-
-    const writer =  fs.createWriteStream(imagePath);
+    const imagePath = path.resolve(__dirname, 'images', 'leadyimg.png');
 
     let response = await axios({
-        url : url,
         method: 'GET',
+        url : url,
         responseType: 'stream'
     })
 
-    response.data.pipe(writer);
+    response.data.pipe(fs.createWriteStream(imagePath));
 
     return new Promise(( resolve, rejectes) => {
-        writer.on('finish', resolve);
-        writer.on('error', rejectes);
+        response.data.on('finish', resolve);
+        response.data.on('error', rejectes);
     })
 }
 
